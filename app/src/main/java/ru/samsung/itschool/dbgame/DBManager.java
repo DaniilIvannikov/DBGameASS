@@ -35,15 +35,18 @@ public class DBManager {
 		db.execSQL("INSERT INTO RESULTS VALUES ('" + username + "', " + score
 				+ ");");
 	}
-	// Player One 150
-	// Запрос
-	// INSERT INTO RESULTS VALUES('Player One', 150);
+	// User1 150 User' , 150); DROP TABLE RESULTS; --
+	// INSERT INTO RESULTS VALUES('User1', 150);
 
-
+    int gamesCount(){
+		Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM RESULTS;", null);
+		cursor.moveToFirst();
+		return cursor.getInt(0);
+	}
 
 	ArrayList<Result> getAllResults() {
 		ArrayList<Result> data = new ArrayList<Result>();
-		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS;", null);
+		Cursor cursor = db.rawQuery("SELECT * FROM RESULTS ORDER BY SCORE DESC;", null);
 		boolean hasMoreData = cursor.moveToFirst();
 
 		while (hasMoreData) {
