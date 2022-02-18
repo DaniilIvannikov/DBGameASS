@@ -38,6 +38,7 @@ public class DBManager {
 	// User1 150 User' , 150); DROP TABLE RESULTS; --
 	// INSERT INTO RESULTS VALUES('User1', 150);
 
+
     int gamesCount(){
 		Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM RESULTS;", null);
 		cursor.moveToFirst();

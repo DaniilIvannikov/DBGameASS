@@ -8,4 +8,6 @@ public class Result {
         	this.name = name;
         	this.score = score;
         }
+
+
 }
