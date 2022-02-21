@@ -18,8 +18,8 @@ public class HoFActivity extends Activity {
 		dbManager = DBManager.getInstance(this);
 		ArrayList<Result> results = dbManager.getAllResults();
 		String[] resultsString = new String[results.size()];
-		ListView listView = this.findViewById(R.id.listView);
-		listView.setAdapter(new ResultAdapter(this, results));
+		//ListView listView = this.findViewById(R.id.listView);
+		//listView.setAdapter(new ResultAdapter(this, results));
 
 	}
 }

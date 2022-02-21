@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class MainActivity extends Activity {
 
 	static DBManager dbManager;
@@ -20,8 +23,12 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle  savedInstanceState) {
+		ResultAdapter resultAdapter = new ResultAdapter(this);
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);
+		NumbersRVAdapter numbersRVAdapter = new NumbersRVAdapter();
+
+
 		dbManager = DBManager.getInstance(this);
 		Animation anim = AnimationUtils.loadAnimation(this, R.anim.fadin);
 		gameResult = (TextView) this.findViewById(R.id.GameResult);
@@ -33,7 +40,6 @@ public class MainActivity extends Activity {
 	     Intent intent = new Intent(this, StatActivity.class);
 		 startActivity(intent);
 	}
-
 	public void play(View v) {
 
 		Animation play = AnimationUtils.loadAnimation(this, R.anim.fadin);
